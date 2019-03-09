@@ -1,22 +1,23 @@
 class CommentsController < ApplicationController
+  before_action :set_movie
 
   before_action :find_comment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comments = Comment.all
+    @comments = @movie.comments
   end
 
   def show
   end
 
   def new
-    @comment = current_user.comment.new(comment_params)
+    @comment = current_user.@movie.comments.new
   end
 
   def create
-    @comment = current_user.comment.new(comment_params)
+    @comment = current_user.@movie.comments.new(comment_params)
     if @comment.save
-      redirect_to movies_show_path
+      redirect_to movies_show_path(@movie)
     else 
       render :new
     end
@@ -27,7 +28,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment.params)
-      redirect_to movies_show_path
+      redirect_to movies_show_path(@movie)
     else
       render :edit
     end
@@ -35,7 +36,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to movies_show_path
+    redirect_to movies_show_path(@movie)
   end
 
   private
@@ -47,4 +48,9 @@ class CommentsController < ApplicationController
   def find_comment
     @comment = Comment.find(params[:id]) 
   end
+
+  def set_movie
+    @movie = Movie.find(params[:movie_id])
+  end
+  
 end
