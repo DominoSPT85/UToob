@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_movie
+  before_action :get_user_id
 
   before_action :find_comment, only: [:show, :edit, :update, :destroy]
 
@@ -8,31 +9,31 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @results = Movie.joins(:user).select('user.username').where(:movie_id => @movie, :user_id => @user)
+    @user = Comment.joins(:comments).select('user.id')
+    @username = Movie.joins(:user).select('user.username').where(:movie_id => @movie, :user_id => @user)
   end
 
   def new
-    @comment = current_user.@movie.comments.new
-    render partial 'comments/form'
+    @comment = @movie.comments.new
+    render partial: 'comments/form'
   end
 
   def create
-    @comment = current_user.@movie.comments.new(comment_params)
+    @comment = @movie.comments.new(comment_params)
     if @comment.save
-      redirect_to movies_show_path(@movie)
+      redirect_to movie_comments_path(@movie)
     else
-      render new
+      render :new
     end
   end
 
   def edit
-    render partial 'comments/form'
+    render partial: 'comments/form'
   end
 
   def update
-    if @comment.update(comment.params)
-      redirect_to movies_show_path(@movie)
+    if @comment.update(comment_params)
+      redirect_to movie_comments_path(@movie)
     else
       render :edit
     end
@@ -40,13 +41,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to movies_show_path(@movie)
+    redirect_to movie_comments_path(@movie)
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:text, :user_id).merge(user_id: current_user.id)
   end
 
   def find_comment
@@ -57,8 +58,8 @@ class CommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
   end
 
-  # def set_user
-  #   @user = User.current_user
-  # end
+  def get_user_id
+    @user = Comment.joins(:comments).select('user.id')
+  end
 
 end

@@ -1,8 +1,7 @@
-<h1><%= @movie.comments.id ? 'Edit comment' : 'Create comment' %></h1>
 <%= form_with(model: [@movie, @comment], local: true, class: 'ui form') do |f| %>
   <div class='field'>
-  <%= f.label :body %>
-  <%= f.text_field :body, required: true, placeholder: "Write a Comment" %>
+  <%= f.label :text %>
+  <%= f.text_field :text, required: true, placeholder: "Write a Comment" %>
   </div>
 
   <%= f.submit nil, class: 'ui button' %>
