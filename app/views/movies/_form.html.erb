@@ -1,6 +1,6 @@
 <h1><%= @movie.id ? 'Edit Movie' : 'Create Movie' %></h1>
 <hr />
-<%= form_with(model: movie, local: true, class: 'ui form') do |f| %>
+<%= form_with(model: @movie, local: true, class: 'ui form') do |f| %>
   <div class='field'>
     <%= f.label :title %>
     <%= f.text_field :title, required: true, autofocus: true, placeholder: 'Title' %>
