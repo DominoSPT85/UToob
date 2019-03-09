@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new(movie_params)
+    render partial: 'movies/form'
   end
 
   def create
@@ -23,6 +24,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    render partial: 'movies/form'
   end
 
   def update
