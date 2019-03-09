@@ -2,7 +2,7 @@
 <h1><%= @comment.text %></h1>
 <p><%= @username %><p>
 <hr>
-<p>What would you like to do with this commnt?</p>
+<p>What would you like to do with this comment?</p>
 <%= link_to 'Edit Comment', edit_movie_comment_path(@movie, @comment) %>
 <%= link_to 'Delete Comment', @comment, method: :delete %>
 

@@ -4,7 +4,11 @@
 <p><%= content_tag(:iframe, ' ',  src:@movie.description)%></p>
 <p><%= content_tag(:iframe, ' ',  src:@movie.trailer) %></p>
 
+<h2>Comments</h2>
 
+<% @movie.comments.each do |comment| %>
+  <%= render 'comments/comment', { comment: comment } %>
+<% end %>
 
 
 <p>What would you like to do?</p>
