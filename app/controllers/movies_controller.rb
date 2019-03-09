@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+
   end
 
   def new
@@ -47,6 +48,11 @@ class MoviesController < ApplicationController
 
   def set_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def movie_description_iframe
+    response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM http://www.youtube.com"
+    render
   end
 
 end

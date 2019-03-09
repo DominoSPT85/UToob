@@ -1,5 +1,10 @@
 <h1><%= @movie.title %></h1>
 <hr>
+<h2>Description:</h2>
+<p><%= content_tag(:iframe, '', src: @movie.description) %></p>
+
+
+
 <p>What would you like to do?</p>
 <%= link_to 'View Comments', movie_comments_path(@movie) %>
 <br/>
