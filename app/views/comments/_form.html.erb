@@ -2,7 +2,7 @@
 <%= form_with(model: [@movie, @comment], local: true, class: 'ui form') do |f| %>
   <div class='field'>
   <%= f.label :body %>
-  <%= f.text_field :body, required: true %>
+  <%= f.text_field :body, required: true, placeholder: "Write a Comment" %>
   </div>
 
   <%= f.submit nil, class: 'ui button' %>

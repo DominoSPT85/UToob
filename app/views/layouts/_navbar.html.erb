@@ -1,13 +1,7 @@
 <nav>
   <ul>
-    <li>
-      <%= link_to 'Movies', movies_path %>
-    </li>
-    <li>
-      <%= link_to 'New Movie', new_movie_path %>
-    </li>
-    <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-
-
+    <%= link_to 'Movies', movies_path %>
+    <%= link_to 'New Movie', new_movie_path %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
   </ul>
 </nav>
