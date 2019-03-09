@@ -1,2 +1,10 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<h1>Comments/h1>
+<%= link_to 'add comment', movie_comments_path %>
+<hr/>
+<h2><%= @movie.comments <= 0 ? "No Comments" : "" %></h2>
+<ul>
+  <% @movie.comments.each do |comment| %>
+  <li>
+    <%= comment.body %>
+  </li>
+</ul>
