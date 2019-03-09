@@ -1,7 +1,9 @@
 <h1><%= @movie.title %></h1>
 <hr>
 <h2>Description:</h2>
-<p><%= content_tag(:iframe, '', src: @movie.description) %></p>
+<p><%= content_tag(:iframe, ' ',  src:@movie.description)%></p>
+<p><%= content_tag(:iframe, ' ',  src:@movie.trailer) %></p>
+
 
 
 
@@ -12,6 +14,6 @@
 <br/>
 <%= link_to 'Delete Movie', @movie, method: :delete %>
 <br>
-
 <%= link_to 'Add a new comment', new_movie_comment_path(@movie) %>
   
+

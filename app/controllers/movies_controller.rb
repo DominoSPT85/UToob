@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to movies_index_path
+      redirect_to movies_path
     else
       render :new
     end
@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
 
   def update
     if @movie.update(movie_params)
-      redirect_to movies_index_path
+      redirect_to movies_path
     else
       render :edit
     end
@@ -38,12 +38,12 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie.destroy
-    redirect_to  movies_index_path
+    redirect_to  movies_path
   end
 
   private
   def movie_params
-    params.require(:person).permit(:title, :duration, :genre, :description, :trailer)
+    params.require(:movie).permit(:title, :duration, :genre, :description, :trailer)
   end
 
   def set_movie
