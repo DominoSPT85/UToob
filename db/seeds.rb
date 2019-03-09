@@ -28,7 +28,8 @@ Movie.create(
 title: ‘Kill Bill Vol 1’,
 duration: ‘1hr 51min’,
 genre: ‘Action’,
-description: ‘http://www.imdb.com/title/tt0266697/?ref_=nv_sr_1’, trailer: ‘https://www.youtube.com/embed/ot6C1ZKyiME’)
+description: ‘http://www.imdb.com/title/tt0266697/?ref_=nv_sr_1’, trailer: ‘https://www.youtube.com/embed/ot6C1ZKyiME’
+)
 Movie.create(
 title: ‘Gladiator’,
 duration: ‘2hr 35min’,
