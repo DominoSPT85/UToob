@@ -1,0 +1,35 @@
+
+nav{
+
+  background-color: rgb(65, 1, 65);
+  border-bottom: 1px rgb(30, 0, 32);
+  box-shadow: 2px 1px 5px black ;
+}
+
+nav .nav-logo {
+  font-size: 25px;
+
+  align-self: center;
+  justify-self: center;
+}
+nav .nav-logo a {
+  text-decoration: none;
+  color: blue;
+}
+
+nav .nav-logo a:visited {
+  color: black; 
+}
+nav .nav-menu {
+  align-self: center;
+  justify-self: center;
+}
+nav .nav-menu a {
+  text-decoration: none;
+}
+nav .nav-menu a:visited {
+  color: black;
+}
+nav .nav-menu a:hover {
+  font-weight: bold;
+}
