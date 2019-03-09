@@ -41,39 +41,10 @@ class MoviesController < ApplicationController
   private
   def movie_params
     params.require(:person).permit(:title, :duration, :genre, :description, :trailer)
+  end
 
   def find_movie
     @movie = Movie.find(params[:id])
   end
 
-  def create
-    @movie = Movie.new(movie_params)
-    if @movie.save
-      redirect_to movies_path
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @movie.update(movie_params)
-      redirect_to @movie
-    else
-      render 'form'
-    end
-  end
-
-  def destroy
-    @movie.destroy
-    redirect_to movies_path
-  end
-
-  private
-    def set_movie
-      @movie = Movie.find(params[:id])
-    end
-
-    def movie_params
-      params.require(:movie).permit(:title, :duration, :genre, :description, :trailer)
-    end
 end
