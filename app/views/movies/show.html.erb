@@ -1,2 +1,8 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<h1><%= @movie.title %></h1>
+<hr>
+<p>What would you like to do?</p>
+<%= link_to 'View Comments', movie_comments_path(@movie) %>
+<br/>
+<%= link_to 'Edit Movie', edit_movie_path(@movie) %>
+<br/>
+<%= link_to 'Delete Movie', @movie, method: :delete %>
