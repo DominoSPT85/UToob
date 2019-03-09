@@ -1,10 +1,11 @@
-<h1>Comments/h1>
-<%= link_to 'add comment', movie_comments_path %>
+<h1>Comments</h1>
+
 <hr/>
-<h2><%= @movie.comments <= 0 ? "No Comments" : "" %></h2>
+
 <ul>
   <% @movie.comments.each do |comment| %>
   <li>
-    <%= comment.body %>
+    <%= comment.text %>
   </li>
+<% end %>
 </ul>
