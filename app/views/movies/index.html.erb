@@ -1,24 +1,23 @@
-<h1>Movies#index</h1>
-<% @movies.each do |movie| %>
-  <%= movie.title %>
-<% end %>
+<h1>Movies List</h1>
 
 <table class="ui celled table">
   <thead>
-    <tr class='center aligned'>
-      <th colspan='4'></th>
-    </tr>
-  </thead>
+    <tr class='center aligned'><th>Title</th>
+      <th>Genre</th>
+      <th>Movie Length</th>
+      <th>Description</th>
+      <th>Trailer Link</th>
+    </tr></thead>
   <tbody>
   <% @movies.each do |movie| %>
     <tr class='center aligned'>
       <td><%= movie.title %></td>
-      <td><%= lesson.genre %></td>
-      <td><%= lesson.duration %></td>
-      <td><%= lesson.descritiption %></td>
-      <td><%= lesson.trailer %></td>
+      <td><%= movie.genre %></td>
+      <td><%= movie.duration %></td>
+      <td><%= movie.description %></td>
+      <td><%= movie.trailer %></td>
     </tr>
-    <%= link_to 'Delete Movie', movie, method: :destroy %>
   <% end %>
   </tbody>
 </table>
+<%= link_to 'Delete Movie', @movie, method: :destroy %>
