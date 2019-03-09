@@ -12,18 +12,20 @@ class CommentsController < ApplicationController
 
   def new
     @comment = current_user.@movie.comments.new
+    render partial 'comments/form'
   end
 
   def create
     @comment = current_user.@movie.comments.new(comment_params)
     if @comment.save
       redirect_to movies_show_path(@movie)
-    else 
-      render :new
+    else
+      render new
     end
   end
 
   def edit
+    render partial 'comments/form'
   end
 
   def update
@@ -46,11 +48,11 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    @comment = Comment.find(params[:id]) 
+    @comment = Comment.find(params[:id])
   end
 
   def set_movie
     @movie = Movie.find(params[:movie_id])
   end
-  
+
 end
