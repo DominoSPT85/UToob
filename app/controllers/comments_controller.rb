@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @results = Movie.joins(:user).select('user.username').where(:movie_id => @movie, :user_id => @user)
   end
 
   def new
@@ -54,5 +56,9 @@ class CommentsController < ApplicationController
   def set_movie
     @movie = Movie.find(params[:movie_id])
   end
+
+  # def set_user
+  #   @user = User.current_user
+  # end
 
 end
