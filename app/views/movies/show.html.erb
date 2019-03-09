@@ -1,7 +1,9 @@
 <h1><%= @movie.title %></h1>
 <hr>
 <h2>Description:</h2>
-<p><%= content_tag(:iframe, '', src: @movie.description) %></p>
+<p><%= content_tag(:iframe, ' ',  src:@movie.description)%></p>
+<p><%= content_tag(:iframe, ' ',  src:@movie.trailer) %></p>
+
 
 
 
