@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: { in: 2..50}
   validates :duration, length: {maximum: 30}
